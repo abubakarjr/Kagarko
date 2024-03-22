@@ -1,26 +1,20 @@
-/* Reset some default browser styles */
 body, h1, h2, h3, p, ul, li {
     margin: 0;
     padding: 0;
   }
-  
-  /* Basic layout styles */
-  body {
+    body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     background-color: green;
-  }
+ }
   
-  header {
-    background-color: rgba(255, 255, 255, 0.2);
-    height: 50px;
-    color: #fff;
-    padding: 20px;
-    margin: 5px;
-    backdrop-filter: blur(10px);
-    text-align: center;
-    border-radius: 5px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+ *::-webkit-scrollbar {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  *::-webkit-scrollbar {
+   scrollbar-width: none;
   }
   
   nav ul {
@@ -43,13 +37,25 @@ body, h1, h2, h3, p, ul, li {
     border-radius: 5px;
   }
   
+  header {
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 30px;
+    color: #fff;
+    padding: 20px;
+    margin: 2px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
   main {
     flex: 6;
     background-color: rgba(255, 255, 255, 0.2); /* Adjust opacity to control glass effect */
     padding: 20px;
-    margin: 5px;
+    margin: 2px;
     backdrop-filter: blur(10px); /* Apply blur effect */
-    border-radius: 10px;
+    border-radius: 5px;
     border: 1px solid rgba(255, 255, 255, 0.2); /* Add border for better visibility */
   }
 
@@ -57,7 +63,7 @@ body, h1, h2, h3, p, ul, li {
     flex: 1;
     background-color: rgba(255, 255, 255, 0.2); /* Adjust opacity to control glass effect */
     padding: 20px;
-    margin: 5px;
+    margin: 2px;
     backdrop-filter: blur(10px); /* Apply blur effect */
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.2); /* Add border for better visibility */
@@ -67,8 +73,8 @@ body, h1, h2, h3, p, ul, li {
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    margin: 5px;
-    height: 40px;
+    margin: 2px;
+    height: 30px;
     color: #fff;
     text-align: center;
     padding: 20px;
