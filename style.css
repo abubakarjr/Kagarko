@@ -8,14 +8,19 @@ body, h1, h2, h3, p, ul, li {
   body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
+    background-color: green;
   }
   
   header {
-    background-color: #333;
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 50px;
     color: #fff;
     padding: 20px;
+    margin: 5px;
+    backdrop-filter: blur(10px);
     text-align: center;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
   }
   
   nav ul {
@@ -32,26 +37,42 @@ body, h1, h2, h3, p, ul, li {
     text-decoration: none;
   }
   
-  main {
+  .container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 20px;
+    height: 80vh;
+    border-radius: 5px;
   }
   
-  section, aside {
+  main {
+    flex: 6;
+    background-color: rgba(255, 255, 255, 0.2); /* Adjust opacity to control glass effect */
+    padding: 20px;
+    margin: 5px;
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Add border for better visibility */
+  }
+
+  aside {
     flex: 1;
-    margin-bottom: 20px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.2); /* Adjust opacity to control glass effect */
     padding: 20px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  }
-  
+    margin: 5px;
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Add border for better visibility */
+  } 
+   
   footer {
-    background-color: #333;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 5px;
+    height: 40px;
     color: #fff;
     text-align: center;
     padding: 20px;
+    border-radius: 5px;
   }
   
   /* Responsive styles */
@@ -71,8 +92,12 @@ body, h1, h2, h3, p, ul, li {
       padding: 40px;
     }
   
-    section, aside {
-      width: 45%;
+    section {
+      width: 60%;
+    }
+
+    aside {
+      width: 35%;
     }
   }
   
@@ -82,8 +107,11 @@ body, h1, h2, h3, p, ul, li {
       padding: 60px;
     }
   
-    section, aside {
-      width: 30%;
+    section {
+      width: 70%;
+    }
+
+    aside {
+      width: 25%;
     }
   }
-  
