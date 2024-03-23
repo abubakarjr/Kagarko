@@ -8,7 +8,7 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: black;
+    background-color: rgb(6, 101, 10);
 }
 
 /* Hide default scrollbar for WebKit browsers */
@@ -45,7 +45,6 @@ nav ul li a {
     left: 0;
     width: 100%;
     display: none;
-    z-index: 999; /* Set a higher z-index to ensure it appears above other content */
 }
 
 .nav-links.active {
@@ -64,13 +63,30 @@ nav ul li a {
 
 .container {
     display: flex;
-    height: 80vh;
-    border-radius: 5px;
+    height: 100vh;
 }
 
-header {
+aside {
+    width: 5%;
+    flex: 0 0 10%; 
     background-color: rgba(255, 255, 255, 0.2);
-    height: 8vh; /* Use viewport height for header */
+    padding: 20px;
+    margin: 2px;
+    backdrop-filter: blur(10px);
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.main-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+header {
+    width: auto;
+    height: 40px; /* Fixed height for header */
+    background-color: rgba(255, 255, 255, 0.2);
     color: #fff;
     padding: 20px;
     margin: 2px;
@@ -81,51 +97,44 @@ header {
 }
 
 main {
-    flex: 6;
+    flex: 6; /* Take 4/6 (or 2/3) of the remaining space */
     background-color: rgba(255, 255, 255, 0.2);
     padding: 20px;
     margin: 2px;
     backdrop-filter: blur(10px);
     border-radius: 5px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    width: 100%; /* Ensure main content takes full width */
-}
-
-aside {
-    flex: 1;
-    background-color: rgba(255, 255, 255, 0.2);
-    padding: 20px;
-    margin: 2px;
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 footer {
+    width: auto;
+    height: 40px; /* Fixed height for footer */
     background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    margin: 2px;
-    height: 8vh; /* Use viewport height for footer */
     color: #fff;
     text-align: center;
     padding: 20px;
+    margin: 2px;
     border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
+
 
 /* Responsive styles */
 @media only screen and (max-width: 768px) {
     .menu-toggle {
         display: block;
-        position: relative;
+        position: absolute;
+        top: 25px;
+        left: 20px;
         z-index: 999;
+        cursor: pointer;
     }
 
     /* Style the navigation links */
     .nav-links {
         list-style-type: none;
         padding: 10px;
-        background-color: #333;
+        background-color: transparent;
         position: absolute;
         top: 80px; /* Adjust the top position to avoid overlapping with the header */
         left: 0;
@@ -135,11 +144,9 @@ footer {
     }
 
     main {
-        flex-direction: column;
         width: 100%;
     }
 
-    section,
     aside {
         width: 100%;
     }
@@ -171,6 +178,6 @@ footer {
     }
 
     aside {
-        width: 25%;
+        width: 5%;
     }
 }
