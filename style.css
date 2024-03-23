@@ -1,45 +1,76 @@
-body, h1, h2, h3, p, ul, li {
+/* Reset some default browser styles */
+* {
     margin: 0;
     padding: 0;
-  }
-    body {
+    scrollbar-width: none; /* Firefox */
+}
+
+body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: green;
- }
-  
- *::-webkit-scrollbar {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  *::-webkit-scrollbar {
-   scrollbar-width: none;
-  }
-  
-  nav ul {
+    background-color: black;
+}
+
+/* Hide default scrollbar for WebKit browsers */
+*::-webkit-scrollbar {
+    display: none;
+}
+
+nav ul {
     list-style-type: none;
-  }
-  
-  nav ul li {
+}
+
+nav ul li {
     display: inline;
     margin-right: 20px;
-  }
-  
-  nav ul li a {
+}
+
+nav ul li a {
     color: #fff;
     text-decoration: none;
-  }
-  
-  .container {
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+/* Style the navigation links */
+.nav-links {
+    list-style-type: none;
+    padding: 10px;
+    background-color: #333;
+    position: absolute;
+    top: 80px; /* Adjust the top position to avoid overlapping with the header */
+    left: 0;
+    width: 100%;
+    display: none;
+    z-index: 999; /* Set a higher z-index to ensure it appears above other content */
+}
+
+.nav-links.active {
+    display: block;
+}
+
+.nav-links li {
+    display: block;
+    margin: 10px 0;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.container {
     display: flex;
     height: 80vh;
     border-radius: 5px;
-  }
-  
-  header {
+}
+
+header {
     background-color: rgba(255, 255, 255, 0.2);
-    height: 30px;
+    height: 8vh; /* Use viewport height for header */
     color: #fff;
     padding: 20px;
     margin: 2px;
@@ -47,77 +78,99 @@ body, h1, h2, h3, p, ul, li {
     text-align: center;
     border-radius: 5px;
     border: 1px solid rgba(255, 255, 255, 0.2);
-  }
+}
 
-  main {
+main {
     flex: 6;
-    background-color: rgba(255, 255, 255, 0.2); /* Adjust opacity to control glass effect */
+    background-color: rgba(255, 255, 255, 0.2);
     padding: 20px;
     margin: 2px;
-    backdrop-filter: blur(10px); /* Apply blur effect */
+    backdrop-filter: blur(10px);
     border-radius: 5px;
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Add border for better visibility */
-  }
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 100%; /* Ensure main content takes full width */
+}
 
-  aside {
+aside {
     flex: 1;
-    background-color: rgba(255, 255, 255, 0.2); /* Adjust opacity to control glass effect */
+    background-color: rgba(255, 255, 255, 0.2);
     padding: 20px;
     margin: 2px;
-    backdrop-filter: blur(10px); /* Apply blur effect */
+    backdrop-filter: blur(10px);
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Add border for better visibility */
-  } 
-   
-  footer {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+footer {
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     margin: 2px;
-    height: 30px;
+    height: 8vh; /* Use viewport height for footer */
     color: #fff;
     text-align: center;
     padding: 20px;
     border-radius: 5px;
-  }
-  
-  /* Responsive styles */
-  @media only screen and (max-width: 768px) {
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        position: relative;
+        z-index: 999;
+    }
+
+    /* Style the navigation links */
+    .nav-links {
+        list-style-type: none;
+        padding: 10px;
+        background-color: #333;
+        position: absolute;
+        top: 80px; /* Adjust the top position to avoid overlapping with the header */
+        left: 0;
+        width: 100%;
+        display: none;
+        z-index: 999; /* Set a higher z-index to ensure it appears above other content */
+    }
+
     main {
-      flex-direction: column;
+        flex-direction: column;
+        width: 100%;
     }
-  
-    section, aside {
-      width: 100%;
+
+    section,
+    aside {
+        width: 100%;
     }
-  }
-  
-  /* Tablet Styles */
-  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
     main {
-      padding: 40px;
+        padding: 40px;
     }
-  
+
     section {
-      width: 60%;
+        width: 60%;
     }
 
     aside {
-      width: 35%;
+        width: 35%;
     }
-  }
-  
-  /* Desktop Styles */
-  @media only screen and (min-width: 1024px) {
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 1024px) {
     main {
-      padding: 60px;
+        padding: 60px;
     }
-  
+
     section {
-      width: 70%;
+        width: 70%;
     }
 
     aside {
-      width: 25%;
+        width: 25%;
     }
-  }
+}
