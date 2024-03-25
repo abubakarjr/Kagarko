@@ -68,7 +68,7 @@ nav ul li a {
 
 aside {
     width: 5%;
-    flex: 0 0 10%; 
+    flex: 0 0 5%; 
     background-color: rgba(255, 255, 255, 0.2);
     padding: 20px;
     margin: 2px;
@@ -77,6 +77,13 @@ aside {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+aside img{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    height: 100px;
+    width: 100px;
+}
 .main-container {
     flex: 1;
     display: flex;
