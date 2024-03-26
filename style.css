@@ -39,9 +39,9 @@ nav ul li a {
 .nav-links {
     list-style-type: none;
     padding: 10px;
-    background-color: #333;
+    /* background-color: #333; */
     position: absolute;
-    top: 80px; /* Adjust the top position to avoid overlapping with the header */
+    top: 80px; 
     left: 0;
     width: 100%;
     display: none;
@@ -79,8 +79,8 @@ aside {
 
 aside img{
     position: absolute;
-    left: 5px;
-    top: 5px;
+    left: -8px;
+    top: -5px;
     height: 100px;
     width: 100px;
 }
@@ -151,18 +151,19 @@ footer {
     }
 
     main {
-        width: 100%;
+        width: auto;
     }
 
     aside {
         width: 100%;
+        display: none;
     }
 }
 
 /* Tablet Styles */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
     main {
-        padding: 40px;
+        width: auto;
     }
 
     section {
