@@ -3,96 +3,109 @@
     margin: 0;
     padding: 0;
     scrollbar-width: none; /* Firefox */
-}
-
-body {
+  }
+  
+  body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: rgb(6, 101, 10);
-}
-
-/* Hide default scrollbar for WebKit browsers */
-*::-webkit-scrollbar {
+    background-color: rgb(22, 24, 22);
+  }
+  
+  /* Hide default scrollbar for WebKit browsers */
+  *::-webkit-scrollbar {
     display: none;
-}
-
-nav ul {
-    list-style-type: none;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.menu-toggle {
-    display: none;
-    cursor: pointer;
-}
-
-/* Style the navigation links */
-.nav-links {
-    list-style-type: none;
-    padding: 10px;
-    /* background-color: #333; */
+  }
+  
+  .toggle-aside {
     position: absolute;
-    top: 80px; 
-    left: 0;
-    width: 100%;
+    top: 20px;
+    right: 0px;
+    cursor: pointer;
+  }
+  
+  .toggle-aside img {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .hidden {
     display: none;
-}
+  }
 
-.nav-links.active {
-    display: block;
-}
-
-.nav-links li {
-    display: block;
-    margin: 10px 0;
-}
-
-.nav-links li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.container {
+  nav {
+    text-align: start; /* Align navigation to the start */
+  }
+  
+  nav ul {
+    list-style-type: none; /* Remove default list styles */
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav li {
+    display: flex; /* Use flexbox */
+    align-items: center; /* Align items vertically */
+    margin: 10px; /* Add spacing between list items */
+  }
+  
+  nav a {
+    text-decoration: none; /* Remove underline from anchor links */
+    color: #fff; /* Set text color */
+    font-weight:normal; /* Make the text bold */
+    transition: color 0.3s; /* Add transition effect for color change */
+    display: flex; /* Use flexbox */
+    align-items: center; /* Align items vertically */
+  }
+  
+  nav a img {
+    width: 35px; /* Set width of the icon */
+    height: 35px; /* Set height of the icon */
+    margin-right: 5px; /* Add spacing between icon and text */
+  }
+  
+  nav a span {
+    margin-right: 5px; /* Add spacing between icon and text */
+  }
+  
+  nav a:hover {
+    color: #ffcc00; /* Change text color on hover */
+  }
+    
+  .container {
     display: flex;
     height: 100vh;
-}
-
-aside {
-    width: 5%;
-    flex: 0 0 5%; 
-    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  aside {
+    display: flex;
+    flex-direction: column; /* Display children elements in a column */
+    align-items: center; /* Center-align items horizontally */
     padding: 20px;
     margin: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     border-radius: 5px;
     border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-aside img{
-    position: absolute;
+  }
+  
+  aside img {
+    height: 120px;
+    width: 120px;
     left: -8px;
     top: -5px;
-    height: 100px;
-    width: 100px;
-}
-.main-container {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .main-container {
     flex: 1;
     display: flex;
     flex-direction: column;
   }
   
-header {
+  header {
     width: auto;
-    height: 40px; /* Fixed height for header */
+    height: 30px; /* Fixed height for header */
     background-color: rgba(255, 255, 255, 0.2);
     color: #fff;
     padding: 20px;
@@ -101,9 +114,9 @@ header {
     text-align: center;
     border-radius: 5px;
     border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-main {
+  }
+  
+  main {
     flex: 6; /* Take 4/6 (or 2/3) of the remaining space */
     background-color: rgba(255, 255, 255, 0.2);
     padding: 20px;
@@ -111,11 +124,11 @@ main {
     backdrop-filter: blur(10px);
     border-radius: 5px;
     border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-footer {
+  }
+  
+  footer {
     width: auto;
-    height: 40px; /* Fixed height for footer */
+    height: 30px; /* Fixed height for footer */
     background-color: rgba(255, 255, 255, 0.2);
     color: #fff;
     text-align: center;
@@ -123,69 +136,59 @@ footer {
     margin: 2px;
     border-radius: 5px;
     border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-
-/* Responsive styles */
-@media only screen and (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-        position: absolute;
-        top: 25px;
-        left: 20px;
-        z-index: 999;
-        cursor: pointer;
-    }
-
-    /* Style the navigation links */
-    .nav-links {
-        list-style-type: none;
-        padding: 10px;
-        background-color: transparent;
-        position: absolute;
-        top: 80px; /* Adjust the top position to avoid overlapping with the header */
-        left: 0;
-        width: 100%;
-        display: none;
-        z-index: 999; /* Set a higher z-index to ensure it appears above other content */
-    }
-
+  }
+  
+  /* Responsive styles */
+  @media only screen and (max-width: 768px) {
     main {
-        width: auto;
+      width: auto;
+    }
+  
+    aside {
+      width: 5%;
+      display: flex;
     }
 
-    aside {
-        width: 100%;
+    aside img {
+        height: 70px;
+        width: 70px;
+        left: -8px;
+        top: -5px;
+        margin: 0;
+        padding: 0;
+    }
+    nav a span {
         display: none;
     }
-}
-
-/* Tablet Styles */
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  }
+  
+  /* Tablet Styles */
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
     main {
-        width: auto;
+      width: auto;
     }
-
+  
     section {
-        width: 60%;
+      width: 60%;
     }
-
+  
     aside {
-        width: 35%;
+      width: 15%;
     }
-}
-
-/* Desktop Styles */
-@media only screen and (min-width: 1024px) {
+  }
+  
+  /* Desktop Styles */
+  @media only screen and (min-width: 1024px) {
     main {
-        padding: 60px;
+      padding: 60px;
     }
-
+  
     section {
-        width: 70%;
+      width: 70%;
     }
-
+  
     aside {
-        width: 5%;
+      width: 15%;
     }
-}
+  }
+  
