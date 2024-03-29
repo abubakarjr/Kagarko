@@ -117,18 +117,37 @@
   }
   
   main {
-    flex: 6; /* Take 4/6 (or 2/3) of the remaining space */
+    display: flex;
+    justify-content: center;
+    flex: 6;
     background-color: rgba(255, 255, 255, 0.2);
-    padding: 20px;
+    padding: 5px;
     margin: 2px;
     backdrop-filter: blur(10px);
     border-radius: 5px;
     border: 1px solid rgba(255, 255, 255, 0.2);
-  }
+    overflow: auto;
+}
   
-  footer {
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Adjust minmax values for responsiveness */
+    gap: 5px;
+    width: 100%;
+}
+  
+.card {
+    background-color: #f0f0f0; 
+    padding: 2px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    text-align: center;
+    height: 72vh;
+}
+
+footer {
     width: auto;
-    height: 30px; /* Fixed height for footer */
+    height: 30px;
     background-color: rgba(255, 255, 255, 0.2);
     color: #fff;
     text-align: center;
@@ -140,6 +159,10 @@
   
   /* Responsive styles */
   @media only screen and (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    
     main {
       width: auto;
     }
@@ -167,9 +190,9 @@
     main {
       width: auto;
     }
-  
-    section {
-      width: 60%;
+    
+    .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust minmax values for tablet */
     }
   
     aside {
@@ -180,13 +203,9 @@
   /* Desktop Styles */
   @media only screen and (min-width: 1024px) {
     main {
-      padding: 60px;
+        width: auto;
     }
-  
-    section {
-      width: 70%;
-    }
-  
+    
     aside {
       width: 15%;
     }
