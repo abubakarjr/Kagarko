@@ -1,191 +1,184 @@
-/* Reset some default browser styles */
+:root {
+    --primary-color: #330c43;
+    --secondary-color: #176923;
+    --text-color: #fff;
+    --icon-size: 40px;
+    --icon-border-width: 2px;
+    --icon-border-radius: 5px;
+}
+
 * {
     margin: 0;
     padding: 0;
-    scrollbar-width: none; /* Firefox */
-  }
-  
-  body {
+    scrollbar-width: none; 
+}
+
+body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     background-color: rgb(22, 24, 22);
-  }
-  
-  /* Hide default scrollbar for WebKit browsers */
-  *::-webkit-scrollbar {
+}
+
+*::-webkit-scrollbar {
     display: none;
-  }
-  
-  .toggle-aside {
+}
+
+.toggle-aside {
     position: absolute;
-    top: 20px;
+    top: 5px;
     right: 10px;
     cursor: pointer;
-  }
-  
-  .toggle-aside img {
-    width: 30px;
-    height: 30px;
-    border: 2px solid #fff;
-    border-radius: 5px;
+}
 
-  }
-  
-  .hidden {
+.toggle-aside img {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    border: var(--icon-border-width) solid var(--text-color);
+    border-radius: var(--icon-border-radius);
+}
+
+.hidden {
     display: none;
-  }
+}
 
-  nav {
-    text-align: start; /* Align navigation to the start */
-  }
-  
-  nav ul {
-    list-style-type: none; /* Remove default list styles */
+nav {
+    text-align: start; 
+}
+
+nav ul {
+    list-style-type: none; 
     padding: 0;
     margin: 0;
-  }
-  
-  nav li {
-    display: flex; /* Use flexbox */
-    align-items: center; /* Align items vertically */
-    margin: 10px; /* Add spacing between list items */
-  }
-  
-  nav a {
-    text-decoration: none; /* Remove underline from anchor links */
-    color: #fff; /* Set text color */
-    font-weight:normal; /* Make the text bold */
-    transition: color 0.3s; /* Add transition effect for color change */
-    display: flex; /* Use flexbox */
-    align-items: center; /* Align items vertically */
-  }
-  
-  nav a img {
-    width: 35px; /* Set width of the icon */
-    height: 35px; /* Set height of the icon */
-    margin-right: 5px; /* Add spacing between icon and text */
-    border: 2px solid #fff;
-    border-radius: 5px;
-  }
-  
-  nav a span {
-    margin-right: 5px; /* Add spacing between icon and text */
-  }
-  
-  nav a:hover {
-    color: #ffcc00; /* Change text color on hover */
-  }
-    
-  .container {
+}
+
+nav li {
+    display: flex; 
+    align-items: center; 
+    margin: 10px; 
+}
+
+nav a {
+    text-decoration: none; 
+    color: var(--text-color); 
+    font-weight: normal; 
+    transition: color 0.3s; 
+    display: flex; 
+    align-items: center; 
+}
+
+nav a img {
+    width: var(--icon-size); 
+    height: var(--icon-size); 
+    margin-right: 5px; 
+    border: var(--icon-border-width) solid var(--text-color);
+    border-radius: var(--icon-border-radius);
+}
+
+nav a span {
+    margin-right: 5px; 
+}
+
+nav a:hover {
+    color: #ffcc00; 
+}
+
+.container {
     display: flex;
     height: 100vh;
+}
 
-  }
-  
-  aside {
+aside {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 98vh;
+    z-index: 999;
     display: flex;
-    flex-direction: column; 
-    align-items: center; 
+    flex-direction: column;
+    align-items: center;
     padding: 2px;
     margin: 2px;
-    background: linear-gradient(to bottom, #330c43 23%, #176923 95%);
+    background: linear-gradient(to bottom, var(--primary-color) 23%, var(--secondary-color) 95%);
     backdrop-filter: blur(10px);
-    border-radius: 5px;
-    border: 2px solid #fff;
-  }
+    border-radius: var(--icon-border-radius);
+    border: var(--icon-border-width) solid var(--text-color);
+}
 
-  aside img {
-      height: 80px;
-      width: 80px;
-      left: -8px;
-      top: -5px;
-      margin: 0;
-      padding: 0;
-      border: 2px solid #fff;
-      border-radius: 5px;
-  
-  }
+aside img {
+    height: 80px;
+    width: 80px;
+    left: -8px;
+    top: -5px;
+    margin: 0;
+    padding: 0;
+    border: var(--icon-border-width) solid var(--text-color);
+    border-radius: var(--icon-border-radius);
+}
 
-  nav a span {
-      /* display: none; */
-  }
-  
-  .main-container {
+.main-container {
     flex: 1;
     display: flex;
     flex-direction: column;
-  }
-  
-  header {
+    margin-left: 60px; 
+}
+
+header,
+footer {
     width: auto;
-    height: 30px; /* Fixed height for header */
-    background:#330c43;
-    color: #fff;
+    height: 15px; 
+    background: var(--primary-color);
+    color: var(--text-color);
     padding: 20px;
     margin: 2px;
     backdrop-filter: blur(10px);
     text-align: center;
-    border-radius: 5px;
-    border: 2px solid #fff;
-  }
-  
-  main {
+    border-radius: var(--icon-border-radius);
+    border: var(--icon-border-width) solid var(--text-color);
+}
+
+main {
     display: flex;
     justify-content: center;
     flex: 6;
-    background: linear-gradient(to bottom, #330c43 23%, #176923 95%);
+    background: linear-gradient(to bottom, var(--primary-color) 23%, var(--secondary-color) 95%);
     padding: 5px;
     margin: 2px;
-    /* backdrop-filter: blur(10px); */
-    border-radius: 5px;
-    border: 2px solid #fff;
+    border-radius: var(--icon-border-radius);
+    border: var(--icon-border-width) solid var(--text-color);
     overflow: auto;
 }
-  
+
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Adjust minmax values for responsiveness */
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
     gap: 5px;
     width: 100%;
 }
-  
-.card {
-    background-color: transparent; 
-    padding: 0;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
-    text-align: center;
-    height: 72vh;
-    color: #fff;
-    /* border: 2px solid #fff; */
 
+.card {
+    background-color: transparent;
+    padding: 0;
+    border-radius: var(--icon-border-radius);
+    border: var(--icon-border-width) solid var(--text-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: 76vh;
+    color: var(--text-color);
 }
 
-footer {
-    width: auto;
-    height: 30px;
-    background: #176923;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-    margin: 2px;
-    border-radius: 5px;
-    border: 2px solid #fff;
-  }
-  
-  /* Responsive styles */
-  @media only screen and (max-width: 768px) {
+/* Mobile Styles */
+@media only screen and (max-width: 768px) {
     .grid-container {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
-    
+
     main {
-      width: auto;
+        width: auto;
     }
-  
+
     aside {
-      display: flex;
-      width: auto;
+        display: flex;
+        width: auto;
     }
 
     aside img {
@@ -196,44 +189,65 @@ footer {
         margin: 0;
         padding: 0;
     }
+
     nav a img {
-        width: 20px; /* Set width of the icon */
-        height: 20px; /* Set height of the icon */
-        margin-right: 5px; /* Add spacing between icon and text */
-      }
-      
-      nav a span {
-        margin-right: 5px; /* Add spacing between icon and text */
-      }
-    
+        width: 20px;
+        height: 20px; 
+        margin-right: 5px; 
+    }
+
+    nav a span {
+        margin-right: 5px; 
+    }
+
     header {
         position: relative;
     }
-  }
-  
-  /* Tablet Styles */
-  @media only screen and (min-width: 768px) and (max-width: 1024px) {
-    main {
-      width: auto;
-    }
-    
-    .grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust minmax values for tablet */
-    }
-  
+}
+
+/* Tablet and Desktop Styles */
+@media only screen and (min-width: 768px) {
+    main,
     aside {
-      width: auto;
-    }
-  }
-  
-  /* Desktop Styles */
-  @media only screen and (min-width: 1024px) {
-    main {
         width: auto;
     }
-    
-    aside {
-      width:auto;
+
+    aside img {
+        height: 40px;
+        width: 40px;
+        left: -8px;
+        top: -5px;
+        margin: 0;
+        padding: 0;
     }
-  }
-  
+
+    nav a img {
+        width: 20px; 
+        height: 20px; 
+        margin-right: 5px; 
+    }
+
+    nav a span {
+        margin-right: 5px; 
+    }
+
+    header {
+        position: relative;
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    }
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 1024px) {
+    main,
+    aside {
+        width: auto;
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    }
+}
