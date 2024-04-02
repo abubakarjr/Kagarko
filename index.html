@@ -100,7 +100,21 @@
         </header>
 
         <main>
-          <section class="widget"></section>
+          <div class="weather-card" id="weatherCard">
+            <h2>Weather Forecast:</h2>
+            <div class="temperature" id="temperature"></div>
+            <img
+              class="weather-icon"
+              id="weatherIcon"
+              src=""
+              alt="Weather Icon"
+            />
+            <div class="description" id="description"></div>
+            <div class="location" id="location"></div>
+
+            <!-- Circular progress bar container -->
+            <div id="temperatureProgressBar"></div>
+          </div>
           <section class="grid-container">
             <div class="card" id="news-&-info">News & Info</div>
             <div class="card" id="business">Business</div>
@@ -120,5 +134,7 @@
     </div>
 
     <script src="/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/progressbar.js"></script>
   </body>
 </html>

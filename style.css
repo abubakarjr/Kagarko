@@ -120,7 +120,7 @@ aside img {
     display: flex;
     flex-direction: column;
     margin-left: 60px; 
-    height: 102%;
+    height: 100%;
 }
 
 header,
@@ -167,6 +167,47 @@ main {
     color: var(--text-color);
 }
 
+.weather-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: auto;
+}
+
+.weather-icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 10px;
+}
+
+.temperature {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.description {
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.location {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+}
+
+#temperatureProgressBar {
+    margin-top: 20px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Mobile Styles */
 @media only screen and (max-width: 768px) {
     .grid-container {
@@ -180,7 +221,7 @@ main {
     aside {
         display: flex;
         width: auto;
-        height: 100vh;
+        height: 98vh;
     }
 
     aside img {

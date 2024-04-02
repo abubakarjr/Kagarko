@@ -71,37 +71,68 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Function to fetch weather data and display in the widget
-  function fetchWeatherData() {
-    // Replace 'YOUR_API_KEY' with your actual API key
-    const apiKey = "2ebf6805d9b7118cfce23cf5f9499cd8";
-    const city = "YourCity"; // Replace 'YourCity' with the name of your city
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+// WEATHER CARD
+const apiKey = "2ebf6805d9b7118cfce23cf5f9499cd8";
+const weatherCard = document.getElementById("weatherCard");
+const weatherIcon = document.getElementById("weatherIcon");
+const temperature = document.getElementById("temperature");
+const description = document.getElementById("description");
+const locationElement = document.getElementById("location");
+const temperatureProgressBar = document.getElementById(
+  "temperatureProgressBar"
+);
 
-    fetch(apiUrl)
-      .then((response) => response.json())
-      .then((data) => {
-        // Extract relevant weather data
-        const temperature = data.main.temp;
-        const weatherDescription = data.weather[0].description;
+// Coordinates for Kagarko, Nigeria
+const kagarkoLatitude = 9.5944;
+const kagarkoLongitude = 7.6785;
 
-        // Create HTML for weather widget
-        const widgetContainer = document.querySelector(".widget");
-        const weatherHTML = `
-          <h2>Weather</h2>
-          <p>Temperature: ${temperature}°C</p>
-          <p>Description: ${weatherDescription}</p>
-        `;
+// Function to get the weather for Kagarko
+function getKagarkoWeather() {
+  // Fetch current weather data for Kagarko
+  const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${kagarkoLatitude}&lon=${kagarkoLongitude}&appid=${apiKey}`;
+  fetchWeatherData(currentWeatherUrl);
+}
 
-        // Update widget with weather data
-        widgetContainer.innerHTML = weatherHTML;
-      })
-      .catch((error) => {
-        console.error("Error fetching weather data:", error);
-      });
-  }
+// Function to fetch weather data and update the DOM
+function fetchWeatherData(apiUrl) {
+  fetch(apiUrl)
+    .then((response) => response.json())
+    .then((data) => {
+      const iconUrl = `http://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+      weatherIcon.src = iconUrl;
+      temperature.textContent = `${Math.round(data.main.temp - 273.15)}°C`;
+      description.textContent = data.weather[0].description;
+      locationElement.textContent = data.name;
 
-  // Call the fetchWeatherData function when the DOM content is loaded
-  fetchWeatherData();
-});
+      // Create circular progress bar for temperature
+      createCircularProgressBar(Math.round(data.main.temp - 273.15));
+    })
+    .catch((error) =>
+      console.error("Error fetching current weather data:", error)
+    );
+}
+
+// Function to create a circular progress bar using ProgressBar.js
+function createCircularProgressBar(temperature) {
+  const progressBar = new ProgressBar.Circle(temperatureProgressBar, {
+    color: "#3498db",
+    strokeWidth: 10,
+    trailWidth: 5,
+    text: {
+      value: `${temperature}°C`,
+      style: {
+        color: "#555",
+        fontSize: "16px",
+      },
+    },
+    duration: 1500,
+    easing: "easeInOut",
+  });
+
+  // Animate the progress bar based on the temperature
+  const percentage = temperature / 40; // Assuming a maximum temperature of 40°C
+  progressBar.animate(percentage);
+}
+
+// Call the function to get the weather for Kagarko
+getKagarkoWeather();
