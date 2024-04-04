@@ -253,7 +253,6 @@ main {
     main,
     aside {
         width: auto;
-        height: 100vh;
     }
 
     aside img {
